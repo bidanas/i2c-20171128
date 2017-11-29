@@ -33,29 +33,31 @@ public class CategoryDaoTestCase {
 		categoryAttendu = new Category(1, "Music");
 		
 	}
+	
+	
+	
 
 	@After
 	public void tearDown() throws Exception {
 		System.out.println("Libé©ration des resources");
 		categoryDao = null;
-		//connection.close();
 		connection = null;
 	}
 
-	@Test(timeout=200)
+	
+	
+	
+	
+	@Test
 	public void testResearchAllCategories() {
 		System.out.println("Réccupération de la liste des categories ");
 		try {
 			Collection<Category> liste = categoryDao.researchAllCategories();
-			Thread.sleep(100);
 			assertNotNull(liste);
 			assertEquals(resultatAttendu, liste.size(),0);
 		} catch (DaoException e) {
 			fail(e.getMessage());
-		} catch (InterruptedException e) {
-			fail(e.getMessage());
-		}
-		
+		} 
 	}
 	
 	
